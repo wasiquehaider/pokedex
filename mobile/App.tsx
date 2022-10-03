@@ -8,7 +8,7 @@ import {
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { AppLoading } from 'expo';
+import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components';
 
@@ -23,9 +23,9 @@ const App = () => {
     Inter_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  // if (!fontsLoaded) {
+  //   return <AppLoading />;
+  // }
 
   return (
     <NavigationContainer>

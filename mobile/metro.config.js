@@ -1,3 +1,15 @@
-const { createMetroConfiguration } = require('expo-yarn-workspaces');
+const blacklist = require('metro-config/src/defaults/exclusionList');
 
-module.exports = createMetroConfiguration(__dirname);
+module.exports = {
+  resolver: {
+    blacklistRE: blacklist([/amplify\/#current-cloud-backend\/.*/]),
+  },
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+};
